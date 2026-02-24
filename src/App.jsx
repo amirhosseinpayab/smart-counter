@@ -1,30 +1,23 @@
-import { useState } from "react"
-
+import { useState } from "react";
+import CounerDisplay from "./CounterDisplay";
+import CounerButtons from "./CounterButtons";
 
 function App() {
-
-  const [count,setCount] = useState(0)
-
-  function increase(){
-   setCount(count + 1)
+  const [count, setCount] = useState(0);
+  function increase() {
+    setCount(count + 1);
   }
 
-  const decrease = () =>{
-    setCount(count - 1)
-  }
-
-
+  const decrease = () => {
+    setCount(count - 1);
+  };
   return (
     <div>
       <h1>Smart Counter</h1>
-      <h2>count : {count}</h2>
-      { count > 10 && <p>Too High 🚀</p> }
-      { count < 0 && <p style={{color:"red"}}>Negative 😬</p> }
-      <button onClick={increase}>Increase</button>
-      <button onClick={decrease}>Decrease</button>
-
+      <CounerDisplay count={count}/>
+      <CounerButtons increase={increase} decrease={decrease}/>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
